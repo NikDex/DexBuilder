@@ -164,6 +164,11 @@ public:
   // Get the shorty descriptor, such as VII for (Int, Int) -> Void
   std::string Shorty() const;
 
+  // Get the signature, such as (II)V for (Int, Int) -> Void
+  std::string Signature() const;
+
+  size_t ArgsSize() const { return param_types_.size(); }
+
   const TypeDescriptor &ArgType(size_t index) const;
 
   const TypeDescriptor &ReturnType() const { return return_type_; }
