@@ -571,7 +571,9 @@ public:
   FieldBuilder CreateField(const std::string &name, const TypeDescriptor &type);
 
   ClassBuilder setSuperClass(const TypeDescriptor &type);
-
+  
+  ClassBuilder setInterfaces(std::initializer_list<TypeDescriptor> interfaces);
+  
   DexBuilder *parent() const { return parent_; }
 
   const TypeDescriptor &descriptor() const { return type_descriptor_; }

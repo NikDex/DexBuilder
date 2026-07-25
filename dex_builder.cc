@@ -366,6 +366,13 @@ ClassBuilder ClassBuilder::setSuperClass(const TypeDescriptor &type) {
     return *this;
 }
 
+ClassBuilder ClassBuilder::setInterfaces(std::initializer_list<TypeDescriptor> interfaces)
+{
+  for (const auto& interface : interfaces)
+    class_->interfaces->types.push_back(parent_->GetOrAddType(interface));
+  return *this;
+}
+
 void ClassBuilder::set_source_file(const string &source) {
   class_->source_file = parent_->GetOrAddString(source);
 }
