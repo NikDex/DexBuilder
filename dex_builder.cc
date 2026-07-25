@@ -328,6 +328,16 @@ std::string Prototype::Shorty() const {
   return shorty;
 }
 
+std::string Prototype::Signature() const {
+  std::string shorty{'('};
+  for (const auto &type_descriptor : param_types_) {
+    shorty += type_descriptor.short_descriptor();
+  }
+  shorty += ')';
+  shorty += return_type_.short_descriptor();
+  return shorty;
+}
+
 const TypeDescriptor &Prototype::ArgType(size_t index) const {
   assert(index < param_types_.size());
   return param_types_[index];
