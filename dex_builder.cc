@@ -331,10 +331,10 @@ std::string Prototype::Shorty() const {
 std::string Prototype::Signature() const {
   std::string shorty{'('};
   for (const auto &type_descriptor : param_types_) {
-    shorty += type_descriptor.short_descriptor();
+    shorty += type_descriptor.descriptor();
   }
   shorty += ')';
-  shorty += return_type_.short_descriptor();
+  shorty += return_type_.descriptor();
   return shorty;
 }
 
